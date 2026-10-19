@@ -5,78 +5,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Enlaces JoseGG-10</title>
+    <title>🌐 Enlaces JoseGG-10</title>
     <style>
+        :root {
+            --bg-1: #0a1a2f;
+            --bg-2: #123a5e;
+            --frame: rgba(34, 38, 46, 0.92);
+            --link-1: #0b3d91;
+            --link-2: #1565c0;
+            --accent: #4da3ff;
+        }
+
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, rgb(75, 192, 182), #4a90e2);
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            background-attachment: fixed;
             margin: 0;
+            padding: 20px 0;
         }
 
         .app-frame {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: var(--frame);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             width: 90%;
             max-width: 400px;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
             text-align: center;
+            animation: fadeIn 0.6s ease both;
         }
 
-            .app-frame h1 {
-                margin-bottom: 30px;
-                color: #333;
-                font-size: 24px;
-            }
+        .app-frame h1 {
+            margin: 0 0 30px;
+            color: #e8eef7;
+            font-size: 26px;
+            letter-spacing: 0.5px;
+        }
+
+        .app-frame h1::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            margin: 10px auto 0;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--link-2), var(--accent));
+        }
+
         .link {
             display: flex;
             align-items: center;
-            margin: 15px 0;
+            margin: 14px 0;
             padding: 15px;
-            background: linear-gradient(135deg, #007bff, #00d4ff);
+            background: linear-gradient(135deg, var(--link-1), var(--link-2));
             color: #fff;
             text-decoration: none;
-            border-radius: 10px;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             font-size: 18px;
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards;
         }
-            .link::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: rgba(255, 255, 255, 0.2);
-                transition: left 0.3s;
-            }
 
-            .link:hover::before {
-                left: 100%;
-            }
+        .link:nth-of-type(1)  { animation-delay: 0.05s; }
+        .link:nth-of-type(2)  { animation-delay: 0.10s; }
+        .link:nth-of-type(3)  { animation-delay: 0.15s; }
+        .link:nth-of-type(4)  { animation-delay: 0.20s; }
+        .link:nth-of-type(5)  { animation-delay: 0.25s; }
+        .link:nth-of-type(6)  { animation-delay: 0.30s; }
+        .link:nth-of-type(7)  { animation-delay: 0.35s; }
+        .link:nth-of-type(8)  { animation-delay: 0.40s; }
+        .link:nth-of-type(9)  { animation-delay: 0.45s; }
+        .link:nth-of-type(10) { animation-delay: 0.50s; }
 
-            .link:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            }
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
 
-            .link span {
-                position: relative;
-                z-index: 2;
-                flex: 1;
-            }
+        .link:hover::before { left: 100%; }
 
-            .link i {
-                margin-right: 15px;
-                font-size: 24px;
-            }  
+        .link:hover,
+        .link:focus-visible {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(77, 163, 255, 0.3);
+            outline: none;
+        }
+
+        .link:active { transform: translateY(-1px) scale(0.99); }
+
+        .link span {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .link i {
+            margin-right: 15px;
+            font-size: 24px;
+            width: 28px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .link:hover i { transform: scale(1.15) rotate(-5deg); }
+
+        .link::after {
+            content: '\f061';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 14px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .link:hover::after,
+        .link:focus-visible::after {
+            opacity: 0.9;
+            transform: translateX(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.97); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+            .link { opacity: 1; }
+        }
     </style>
 </head>
 
@@ -84,35 +173,35 @@
 
     <div class="app-frame">
         <h1>Mis Enlaces</h1>
-        <a class="link" href="https://josegg.vercel.app/" target="_blank">
+        <a class="link" href="https://josegg.vercel.app/" target="_blank" rel="noopener">
             <i class="fas fa-briefcase"></i>
             <span>Portafolio</span>
         </a>
-        <a class="link" href="https://josegg.com/" target="_blank">
+        <a class="link" href="https://josegg.com/" target="_blank" rel="noopener">
             <i class="fas fa-globe"></i>
             <span>Web Portafolio</span>
         </a>
-        <a class="link" href="https://masaporaceleracion.es/" target="_blank">
+        <a class="link" href="https://masaporaceleracion.es/" target="_blank" rel="noopener">
             <i class="fas fa-globe"></i>
             <span>Web MxA</span>
         </a>
-        <a class="link" href="https://gist.github.com/JoseGG-10/" target="_blank">
+        <a class="link" href="https://gist.github.com/JoseGG-10/" target="_blank" rel="noopener">
             <i class="fab fa-github"></i>
             <span>Gist</span>
         </a>
-        <a class="link" href="https://www.linkedin.com/in/jos%C3%A9-g%C3%B3mez-garc%C3%ADa-87b991166/" target="_blank">
+        <a class="link" href="https://www.linkedin.com/in/jos%C3%A9-g%C3%B3mez-garc%C3%ADa-87b991166/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i>
             <span>LinkedIn</span>
         </a>
-        <a class="link" href="https://github.com/JoseGG-10" target="_blank">
+        <a class="link" href="https://github.com/JoseGG-10" target="_blank" rel="noopener">
             <i class="fab fa-github"></i>
             <span>GitHub</span>
         </a>
-        <a class="link" href="https://joseggedu.vercel.app/" target="_blank">
+        <a class="link" href="https://joseggedu.vercel.app/" target="_blank" rel="noopener">
             <i class="fa fa-gamepad"></i>
-            <span>juegosJoseGG Edu</span>
+            <span>JoseGG Edu</span>
         </a>
-        <a class="link" href="https://orcid.org/0000-0002-5786-733X" target="_blank">
+        <a class="link" href="https://orcid.org/0000-0002-5786-733X" target="_blank" rel="noopener">
             <i class="fa fa-book"></i>
             <span>ORCiD</span>
         </a>
@@ -120,7 +209,7 @@
             <i class="fas fa-envelope"></i>
             <span>j.gomezgarcia3@edu.gva.es</span>
         </a>
-        <a class="link" href="./Selector_JoseGG-10.apk">
+        <a class="link" href="./Selector_JoseGG-10.apk" download>
             <i class="fa-solid fa-circle-down"></i>
             <span>Selector JoseGG-10</span>
         </a>
